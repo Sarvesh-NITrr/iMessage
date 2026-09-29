@@ -6,6 +6,7 @@ import User from './models/user.model.js';
 import { clerkMiddleware } from '@clerk/express'
 import path from "path"
 import fs from "fs"
+import job from "./lib/cron.js"
 const app = express();
 
 // Server
