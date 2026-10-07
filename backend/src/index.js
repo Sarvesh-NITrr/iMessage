@@ -9,6 +9,7 @@ import path from "path";
 import fs from "fs";
 import job from "./lib/cron.js";
 import authRoutes from "./routes/auth.route.js";
+import messageRoutes from "./routes/message.route.js";
 
 const app = express();
 
@@ -30,7 +31,8 @@ app.get("/health", (req, res) => {
   res.status(200).json({ok:true});
 });
 
-app.use("/api/auth",authRoutes)
+app.use("/api/auth",authRoutes);
+app.use("/api/message",messageRoutes);
 
 // if public directory exists, serve the static files
 // this for the production build
