@@ -1,14 +1,13 @@
-import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/react";
-import { Button } from "@heroui/react";
 import { WallpaperProvider } from "./context/WallpaperContext.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import Chatpage from "./pages/Chatpage.jsx";
 import Authpage from "./pages/Authpage.jsx";
 import { Route, Routes, Navigate } from "react-router";
 import { useAuth } from "@clerk/react";
+import PageLoader from "./components/PageLoader";
 function App() {
   const { isLoaded, isSignedIn } = useAuth();
-  if (!isLoaded) return <div>Loading...</div>;
+  if (!isLoaded) return <PageLoader />;
   return (
     <ThemeProvider>
       <WallpaperProvider>
@@ -21,13 +20,7 @@ function App() {
           />
           <Route
             path="/auth"
-            element={
-              !isSignedIn ? (
-                <Authpage />
-              ) : (
-                <Navigate to={"/"} replace></Navigate>
-              )
-            }
+            element={!isSignedIn ? <Authpage /> : <Navigate to={"/"} replace />}
           />
         </Routes>
       </WallpaperProvider>

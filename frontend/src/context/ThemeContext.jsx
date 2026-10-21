@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from "react";
-import { DEFAULT_THEME_PRESET_ID } from "./../data/herouiThemesPresets";
+import { DEFAULT_THEME_PRESET_ID } from "../data/herouiThemePresets";
 import {
   applyThemePresetToDocument,
   isValidThemePreset,
